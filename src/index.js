@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const { uuid, isUuid } = require("uuidv4");
@@ -93,7 +95,7 @@ app.delete("/scraps/:id", (request, response) => {
   return response.status(204).send();
 });
 
-const port = 3333;
+const port = process.env.PORT || 3333;
 app.listen(port, () => {
   console.log(`🚀 Server up and running on PORT ${port}`);
 });
